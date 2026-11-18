@@ -1,0 +1,12 @@
+{
+  "name": "my-web-app",
+  "version": "1.0.0",
+  "description": "A basic Node.js web application for DevOps Practical Work 2",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": ["nodejs", "git", "github", "devops"],
+  "author": "",
+  "license": "ISC"
+}
