@@ -1,21 +1,17 @@
-const express = require("express");
-const app = express();
+const http = require("http");
 
-app.get("/", (req, res) => {
-  res.send(`
-        <h1>Welcome to Home Page</h1>
-        <p>This is the home page of my web application.</p>
-    `);
+const server = http.createServer((req, res) => {
+  if (req.url === "/about") {
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "text/plain");
+    res.end("About Page\n");
+  } else {
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "text/plain");
+    res.end("Hello, World!\n");
+  }
 });
 
-app.get("/about", (req, res) => {
-  res.send(`
-        <h1>About Us</h1>
-        <p>This page provides information about our web application.</p>
-        <p>We are learning Node.js, Git and GitHub.</p>
-    `);
-});
-
-app.listen(3000, () => {
-  console.log("Server running at http://localhost:3000");
+server.listen(3000, () => {
+  console.log("Server running at http://localhost:3000/");
 });
