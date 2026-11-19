@@ -1,16 +1,21 @@
-const http = require("http");
+const express = require("express");
+const app = express();
 
-const server = http.createServer((req, res) => {
-  if (req.url === "/") {
-    res.end("Welcome to my DevOps Web Application!");
-  } else if (req.url === "/about") {
-    res.end("About Page - Developed by Niyonsenga Felicien");
-  } else {
-    res.writeHead(404);
-    res.end("Page Not Found");
-  }
+app.get("/", (req, res) => {
+  res.send(`
+        <h1>Welcome to Home Page</h1>
+        <p>This is the home page of my web application.</p>
+    `);
 });
 
-server.listen(3000, () => {
+app.get("/about", (req, res) => {
+  res.send(`
+        <h1>About Us</h1>
+        <p>This page provides information about our web application.</p>
+        <p>We are learning Node.js, Git and GitHub.</p>
+    `);
+});
+
+app.listen(3000, () => {
   console.log("Server running at http://localhost:3000");
 });
